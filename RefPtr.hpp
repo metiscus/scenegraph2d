@@ -1,6 +1,12 @@
 #ifndef REFPTR_HPP_
 #define REFPTR_HPP_
 
+#ifndef NULL
+#define NULL ((void*)0x0)
+#endif
+
+#include <cstdlib>
+
 template<typename Base>
 class RefPtr
 {
@@ -26,14 +32,14 @@ private:
 };
 
 template<typename Base>
-RefPtr::RefPtr()
+RefPtr<Base>::RefPtr()
 	: mRef(NULL)
 {
 	;
 }
 
 template<typename Base>
-RefPtr::RefPtr(Base* rhs)
+RefPtr<Base>::RefPtr(Base* rhs)
 {
 	if(rhs) {
 		mRef = rhs;
@@ -42,7 +48,7 @@ RefPtr::RefPtr(Base* rhs)
 }
 
 template<typename Base>
-RefPtr& RefPtr::operator=(const RefPtr& rhs)
+RefPtr<Base>& RefPtr<Base>::operator=(const RefPtr& rhs)
 {
 	Base *const old = mRef;
 	mRef = rhs.mRef;
@@ -55,13 +61,13 @@ RefPtr& RefPtr::operator=(const RefPtr& rhs)
 }
 
 template<typename Base>
-RefPtr::~RefPtr()
+RefPtr<Base>::~RefPtr()
 {
 	if(mRef && mRef->unref() == 0) { delete mRef; }
 }
 
 template<typename Base>
-void RefPtr::reset(Base* ptr)
+void RefPtr<Base>::reset(Base* ptr)
 {
 	Base *const old = mRef;
 	mRef = ptr;
@@ -73,25 +79,25 @@ void RefPtr::reset(Base* ptr)
 }
 
 template<typename Base>
-bool RefPtr::isValid() const
+bool RefPtr<Base>::isValid() const
 {
 	return mRef != NULL;
 }
 
 template<typename Base>
-Base* RefPtr::get()
+Base* RefPtr<Base>::get()
 {
 	return mRef;
 }
 
 template<typename Base>
-Base* RefPtr::operator->()
+Base* RefPtr<Base>::operator->()
 {
 	return mRef;
 }
 
 template<typename Base>
-const Base* RefPtr::operator->() const
+const Base* RefPtr<Base>::operator->() const
 {
 	return mRef;
 }

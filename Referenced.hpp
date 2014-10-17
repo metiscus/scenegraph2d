@@ -1,6 +1,8 @@
 #ifndef REFERENCED_HPP_
 #define REFERENCED_HPP_
 
+#include "RefPtr.hpp"
+
 class Referenced
 {
 public:
@@ -17,8 +19,6 @@ protected:
 	
 private:
 	unsigned int mReferences;
-	
-	friend class RefPtr;
 	
 	// remove copy semantics
 	Referenced(const Referenced&);
