@@ -4,45 +4,49 @@
 #include "Object.hpp"
 #include "Rectangle.hpp"
 
-class Camera;
 class Group;
 class Transform;
+
+#include <vector>
 
 class Node : public Object
 {
 public:
-	Node();
+	Node(const char* name = "node");
 	virtual ~Node();
 	
 	virtual inline Node* asNode();
-	virtual inline Camera* asCamera();
 	virtual inline Group* asGroup();
 	virtual inline Transform* asTransform();
 
 	Rectangle& getBound();
 	Rectangle getBound() const;
-	void dirtyBound();
+	virtual void dirtyBound() const;
 	void setBound(const Rectangle& bound);
 	
-	virtual void computeBound();
+	virtual void computeBound() const;
 
 	bool getEnabled() const;
 	void setEnabled(bool enabled);
 
-private:
+	void addParent( RefPtr<Node> parent );
+	void removeParent( RefPtr<Node> parent );
+	std::vector< RefPtr<Node> > getParents();
+	RefPtr<Node> getParentAtIndex(unsigned int index);
+	const RefPtr<Node> getParentAtIndex(unsigned int index) const;
+	unsigned int getNumParents() const;
+
+protected:
     bool mIsEnabled;
-	bool mIsBoundDirty;
-	Rectangle mBoundingBox;
+	mutable bool mIsBoundDirty;
+	mutable Rectangle mBoundingBox;
+	
+	std::vector< RefPtr<Node> > mParents;
 };
 
 inline Node* Node::asNode()
 {
 	return this;
-}
-
-inline Camera* Node::asCamera()
-{
-	return NULL;
 }
 
 inline Group* Node::asGroup()

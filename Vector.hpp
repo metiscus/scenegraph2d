@@ -187,7 +187,4 @@ Real Vector<Real>::toUnit()
 typedef Vector<float> Vectorf;
 typedef Vector<int> Vectori;
 
-template<> Vector<float>;
-template<> Vector<int>;
-
 #endif // VECTOR_H_
