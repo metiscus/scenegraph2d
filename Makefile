@@ -18,6 +18,7 @@ libSG2D_SRC= \
 	stb/stb_image.cpp\
 	Texture.cpp\
 	Logging.cpp\
+	VBO.cpp
 	
 
 libSG2D_OBJ= $(libSG2D_SRC:.cpp=.o)
