@@ -1,4 +1,4 @@
-#include "Logging.h"
+#include "Logging.hpp"
 #include <cassert>
 
 //! LogImpl will write the arguments to stderr
