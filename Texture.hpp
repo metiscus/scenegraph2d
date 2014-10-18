@@ -22,7 +22,7 @@ public:
         \brief load a texture from a Image object
         \param data a reference to the data from which to populate the object
     */
-    bool setFromData(RefPtr<Image> data);
+    bool setFromImage(RefPtr<Image> data);
 
     /// Returns a reference to the internal image data, sets dirty bit
     RefPtr<Image> getDataRW();

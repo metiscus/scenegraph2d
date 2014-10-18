@@ -68,7 +68,7 @@ bool Texture::loadFromFile(const char *filename)
     return true;
 }
 
-bool Texture::setFromData(RefPtr<Image> data)
+bool Texture::setFromImage(RefPtr<Image> data)
 {
     mIsDirty = true;
     mData = data;
