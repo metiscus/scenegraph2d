@@ -24,8 +24,11 @@ const Matrix& Transform::getMatrix() const
 void Transform::computeBound() const
 {
     mBoundingBox.reset();
-	mIsBoundDirty = false;
 
 	// iterate through the children and get bounding boxes
-
+    for(unsigned int ii=0; ii<mChildren.size(); ++ii)
+    {
+    	mBoundingBox.expandBy( mChildren[ii]->getBound().transformBy(mTransform) );
+    }
+    mIsBoundDirty = false;
 }

@@ -25,7 +25,7 @@ public:
     void removeChild(RefPtr<Node> child );
     void removeChildAtIndex(unsigned int idx);
     
-private:
+protected:
     std::vector< RefPtr<Node> > mChildren;
 };
 

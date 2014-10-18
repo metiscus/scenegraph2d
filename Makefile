@@ -14,6 +14,8 @@ libSG2D_SRC= \
 	Transform.cpp\
 	Matrix.cpp\
 	Rectangle.cpp\
+	Image.cpp\
+	stb/stb_image.cpp
 	
 
 libSG2D_OBJ= $(libSG2D_SRC:.cpp=.o)
