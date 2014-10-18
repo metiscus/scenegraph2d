@@ -98,3 +98,8 @@ Rectangle& Rectangle::operator=(const Rectangle& rhs)
     mMax = rhs.mMax;
     return *this;
 }
+
+Rectangle Rectangle::transformBy(const Matrix& rhs)
+{
+	return Rectangle(rhs * mMin, rhs * mMax);
+}

@@ -13,6 +13,7 @@ libSG2D_SRC= \
 	Group.cpp\
 	Transform.cpp\
 	Matrix.cpp\
+	Rectangle.cpp\
 	
 
 libSG2D_OBJ= $(libSG2D_SRC:.cpp=.o)

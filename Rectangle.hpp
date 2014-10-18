@@ -1,8 +1,9 @@
 #ifndef RECTANGLE_H_
 #define RECTANGLE_H_
 
-#include "Vector.hpp"
 #include "MathUtil.hpp"
+#include "Matrix.hpp"
+#include "Vector.hpp"
 
 class Rectangle
 {
@@ -29,6 +30,8 @@ public:
     void set( float x, float y, float w, float h );
 
     Rectangle& operator=(const Rectangle& rhs);
+
+    Rectangle transformBy(const Matrix& rhs);
 
 private:
     Vectorf mMin;

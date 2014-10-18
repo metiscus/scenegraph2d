@@ -14,7 +14,7 @@ public:
     Group(const char* name = "group");
 
 	virtual inline Group* asGroup();
-	virtual void computeBound();
+	virtual void computeBound() const;
     
     void addChild(RefPtr<Node> child);
     unsigned int getNumChildren() const;

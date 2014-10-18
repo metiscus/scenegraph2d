@@ -25,4 +25,7 @@ void Transform::computeBound() const
 {
     mBoundingBox.reset();
 	mIsBoundDirty = false;
+
+	// iterate through the children and get bounding boxes
+
 }

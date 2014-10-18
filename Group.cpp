@@ -6,7 +6,7 @@ Group::Group(const char* name)
     
 }
 
-void Group::computeBound()
+void Group::computeBound() const
 {
     mBoundingBox.reset();
     for(unsigned int ii=0; ii<mChildren.size(); ++ii)
