@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS= -gdwarf-4 -O0 -Wall -Wextra -Iglm
+CXXFLAGS= -gdwarf-4 -O0 -Wall -Wextra -pedantic -Iglm
 LDFLAGS=
 
 default: all
@@ -20,7 +20,8 @@ libSG2D_SRC= \
 	Logging.cpp\
 	VBO.cpp\
 	Shader.cpp\
-	Uniform.cpp
+	Uniform.cpp\
+	Program.cpp\
 	
 
 libSG2D_OBJ= $(libSG2D_SRC:.cpp=.o)
