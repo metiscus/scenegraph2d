@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS= -gdwarf-4 -O0 -Wall -Wextra -pedantic -Iglm
+CXXFLAGS= -gdwarf-4 -O0 -Wall -Wextra -Iglm
 LDFLAGS=
 
 default: all
