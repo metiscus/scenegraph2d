@@ -18,6 +18,7 @@ libSG2D_SRC= \
 	Rectangle.cpp\
 	Referenced.cpp\
 	Shader.cpp\
+	Sprite.cpp\
 	Stage.cpp\
 	Texture.cpp\
 	Transform.cpp\
@@ -35,4 +36,4 @@ example1 : libSG2D.a
 	$(CXX) $(CXXFLAGS) -o example1 example1.cpp -L. -lSG2D
 
 clean:
-	- rm -f $(libSG2D_OBJ) libSG2D.a example1.o
+	- rm -f $(libSG2D_OBJ) libSG2D.a example1 example1.o
