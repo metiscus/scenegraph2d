@@ -1,4 +1,8 @@
 #include "Group.hpp"
+#include "Node.hpp"
+#include "Object.hpp"
+
+#include "RefPtr.hpp"
 
 Group::Group(const char* name)
     : Node(name)

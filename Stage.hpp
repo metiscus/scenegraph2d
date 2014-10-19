@@ -1,7 +1,11 @@
 #ifndef STAGE_HPP_
 #define STAGE_HPP_
 
+#include "Camera.hpp"
+#include "Vector.hpp"
+#include "Rectangle.hpp"
 #include "RefPtr.hpp"
+#include <glm/glm.hpp>
 
 class Stage : public Object
 {
@@ -9,16 +13,22 @@ public:
 	Stage();
 	~Stage();
 	
-	inline void setCamera(std::shared_ptr<Camera> camera);
-	inline std::shared_ptr<Camera> getCamera();
-	
-	inline void addChild(std::shared_ptr<Node> child);
-	inline void removeChild(std::shared_ptr<Node> child);
-	inline unsigned int getNumChildren() const;
+	void setRoot(RefPtr<Group> root);
+	RefPtr<Group> getRoot();
+	const RefPtr<Group>& getRoot() const;
+
+	void setViewport(const Rectangle& vp);
+	Rectangle getViewport() const;
+
+	RefPtr<Camera> getCamera();
+	const RefPtr<Camera>& getCamera() const;
+
+	void setCamera(RefPtr<Camera> camera);
 
 private:
-	std::shared_ptr<Camera> mCamera;
-	std::shared_ptr<Group>  mChildren;
+	RefPtr<Group> mRoot;
+	RefPtr<Camera> mCamera;
+	Rectangle mViewport;
 };
 
 

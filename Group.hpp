@@ -1,9 +1,9 @@
 #ifndef GROUP_H_
 #define GROUP_H_
 
+#include "RefPtr.hpp"
 #include "Matrix.hpp"
 #include "Node.hpp"
-#include "RefPtr.hpp"
 #include "Vector.hpp"
 
 #include <vector>

@@ -12,10 +12,10 @@ class RefPtr
 {
 public:
 	RefPtr();
-	RefPtr(const RefPtr& rhs);
+	RefPtr(const RefPtr<Base>& rhs);
 	RefPtr(Base* rhs);
 	
-	RefPtr& operator=(const RefPtr& rhs);
+	RefPtr& operator=(const RefPtr<Base>& rhs);
 	
 	~RefPtr();
 	
@@ -39,6 +39,13 @@ RefPtr<Base>::RefPtr()
 }
 
 template<typename Base>
+RefPtr<Base>::RefPtr(const RefPtr<Base>& rhs)
+	: mRef(rhs.mRef)
+{
+	;
+}
+
+template<typename Base>
 RefPtr<Base>::RefPtr(Base* rhs)
 {
 	if(rhs) {
@@ -48,7 +55,7 @@ RefPtr<Base>::RefPtr(Base* rhs)
 }
 
 template<typename Base>
-RefPtr<Base>& RefPtr<Base>::operator=(const RefPtr& rhs)
+RefPtr<Base>& RefPtr<Base>::operator=(const RefPtr<Base>& rhs)
 {
 	Base *const old = mRef;
 	mRef = rhs.mRef;
